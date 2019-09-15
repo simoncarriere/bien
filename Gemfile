@@ -27,7 +27,12 @@ gem 'jbuilder', '~> 2.7'
 #add in our geocodding
 gem "geocoder"
 
+#add in our simple form
+gem "simple_form"
 
+
+#Add active link
+gem "active_link_to"
 
 
 
