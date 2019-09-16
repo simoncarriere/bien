@@ -3,6 +3,7 @@ class Review < ApplicationRecord
 
   # add an associateion that has a 1-to-many relationship
   has_many :comments
+  has_many :bookmarks
 
   #add an assositaion to the user
   belongs_to :user
