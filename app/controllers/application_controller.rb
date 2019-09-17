@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
   #check login status
   def check_login
     unless is_logged_in?
@@ -26,6 +27,16 @@ class ApplicationController < ActionController::Base
   #is the person logged in
   def is_logged_in?
     session[:user_id].present?
+  end
+
+
+  #check admin login status
+  def check_admin
+    @user = find_current_user
+
+    unless @user.present? and @user.is_admin?
+      redirect_to root_path
+    end
   end
 
 

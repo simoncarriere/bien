@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  ActiveAdmin.routes(self)
   resources :reviews do
     resources :comments
     resource :bookmark
