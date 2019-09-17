@@ -47,7 +47,7 @@ gem "active_link_to"
 
 # lets add uploading files
 gem "carrierwave", "~> 1.0"
-gem "mini_magick"
+gem "mini_magick", "~>4.9.4"
 
 
 
