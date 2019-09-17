@@ -45,6 +45,11 @@ gem "profanity_filter"
 gem "active_link_to"
 
 
+# lets add uploading files
+gem "carrierwave", "~> 1.0"
+gem "mini_magick"
+
+
 
 
 # Use Active Storage variant

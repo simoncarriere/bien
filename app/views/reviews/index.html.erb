@@ -21,7 +21,6 @@
     <input type="hidden" name="price" value="<%= @price %>">
     <input type="hidden" name="cuisine" value="<%= @cuisine %>">
   </form>
-
 </nav>
 
 
@@ -30,6 +29,8 @@
 <% @reviews.each do |review| %>
   <div class="review">
     <%= link_to review_path(review) do %>
+
+      <%= image_tag review.photo.thumb.url %>
 
       <h2><%= review.title %></h2>
       <p>

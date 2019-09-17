@@ -42,7 +42,7 @@ class ReviewsController < ApplicationController
 
   def create
     # take info from form and add to model
-    @review = Review.new(forms_params)
+    @review = Review.new(form_params)
 
     # and then assosiate it to a user
     @review.user = @current_user
@@ -84,6 +84,8 @@ class ReviewsController < ApplicationController
 
     if @review.user != @current_user
       redirect_to root_path
+    elsif @review.created_at < 1.hour.ago
+      redirect_to review_path(@review)
     end
 
 
@@ -98,7 +100,7 @@ class ReviewsController < ApplicationController
       redirect_to root_path
     else
       #update with the new info
-      if @review.update(forms_params)
+      if @review.update(form_params)
         #redirect to review
         redirect_to review_path(@review)
       else
@@ -108,8 +110,8 @@ class ReviewsController < ApplicationController
   end
 
 
-  def forms_params
-    params.require(:review).permit(:title, :restaurant, :body, :price, :cuisine, :score, :ambiance, :address)
+  def form_params
+    params.require(:review).permit(:title, :restaurant, :body, :price, :cuisine, :score, :ambiance, :address, :photo)
   end
 
 
