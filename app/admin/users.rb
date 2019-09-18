@@ -1,18 +1,25 @@
-ActiveAdmin.register Review do
+ActiveAdmin.register User do
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params  :title, :restaurant, :body, :price, :cuisine, :score, :ambiance, :address, :photo, :user_id, :is_featured
+  permit_params :username, :email, :password, :password_confirm, :is_admin
 
+  #
   # or
   #
   # permit_params do
-  #   permitted = [:title, :body, :score, :restaurant, :price, :cuisine, :phone_number, :ambiance, :address, :latitude, :longitude, :user_id, :photo]
+  #   permitted = [:username, :email, :password_digest, :real_name, :is_admin]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+
+  controller do
+    resources_configuration[:self][:finder] = :find_by_username
+  end
+
 
 end

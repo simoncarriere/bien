@@ -40,4 +40,20 @@ class ApplicationController < ActionController::Base
   end
 
 
+  #find admin user
+  def find_admin_user
+    @current_user = find_current_user
+
+    if @current_user.present? and @current_user.is_admin?
+      @current_user
+    else
+      nil
+    end
+
+  end
+
+
+
+
+
 end
